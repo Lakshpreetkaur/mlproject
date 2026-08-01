@@ -1,13 +1,25 @@
-#  read data from any source  - split data into train and test - dta transformation 
+# ==========================================================
+# DATA INGESTION COMPONENT
+# Responsibility:
+# 1. Read raw data from the source.
+# 2. Store a backup copy in the artifacts folder.
+# 3. Split the data into training and testing sets.
+# 4. Save the split datasets for downstream components.
+# ==========================================================
 
-import os
-import sys
+
+import os     #To Work with folders and file paths. (Create folders ,Join paths,Check files)
+import sys    #sys -> Used while handling exceptions (error).
 from src.exception import CustomException  # extracting or importing this func from another file whose source or path mentioned
 from src.logger import logging
 import pandas as pd  # as we need to work with dataframe
 
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
+
+from src.components.data_transformation import DataTransformation
+from src.components.data_transformation import DataTransformationConfig
+
 
 # class to save all inputs where to save test ,raw ,train data 
 #  All the inputs in data ingestion which is required we will give it to this class
@@ -63,7 +75,12 @@ class DataIngestion:
       except Exception as e:
         raise CustomException(e,sys)
 
+#  combined data ingestion and data transformation
 if __name__ =="__main__":
   obj=DataIngestion()
-  obj.initiate_data_ingestion()
+  train_data , test_data = obj.initiate_data_ingestion()
+
+
+  data_transformation = DataTransformation()
+  data_transformation.intiate_data_transformation(train_data,test_data)
 
