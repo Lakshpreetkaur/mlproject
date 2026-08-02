@@ -86,7 +86,7 @@ class DataTransformation:
 
 
 
-  def intiate_data_transformation(self,train_path,test_path):  # getting these train , test path from data ingestion 
+  def initiate_data_transformation(self,train_path,test_path):  # getting these train , test path from data ingestion 
 
     try:
       # reading training ,testing dataset
