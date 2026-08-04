@@ -6,6 +6,7 @@ scikit-learn
 catboost
 xgboost
 dill
+Flask
 
 # to install packages and requirements we need to insure setup.py file should execute
 #  this -e . will trigger setup.py file automatically

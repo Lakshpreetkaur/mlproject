@@ -20,7 +20,7 @@ from xgboost import XGBRegressor
 from src.exception import CustomException
 from src.logger import logging
 
-from src.uitils import save_object,evaluate_models
+from src.utils import save_object,evaluate_models
 
 @dataclass
 # imput required wrt to model_training

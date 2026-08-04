@@ -16,7 +16,7 @@ from src.exception import CustomException
 from src.logger import logging
 import os
 
-from src.uitils import save_object 
+from src.utils import save_object 
 
 # Config ? -> any input we require in Data Transformation pipeline  it will provide us so we made this class
 @dataclass
